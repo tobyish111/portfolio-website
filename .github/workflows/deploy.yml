@@ -37,6 +37,7 @@ jobs:
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           NODE_ENV: production
+          USE_ROOT_PATH: 'true'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
