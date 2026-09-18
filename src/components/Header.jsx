@@ -1,13 +1,21 @@
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+const navLinks = [
+  { href: '#home', label: 'Home' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#about', label: 'About me' },
+  { href: '#certifications', label: 'Certifications' },
+  { href: '#contact', label: 'Contact' },
+];
+
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 12);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -15,94 +23,55 @@ function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 backdrop-blur-lg shadow-md'
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        isScrolled || isMobileMenuOpen
+          ? 'bg-paper/90 backdrop-blur-md border-b border-line'
           : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="mx-auto max-w-6xl px-6 py-4">
         <div className="flex items-center justify-between">
           <a
             href="#home"
-            className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
+            className="text-[15px] font-semibold tracking-tight text-ink hover:text-accent transition-colors"
           >
             Toby Buckmaster
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#home"
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
-            >
-              Home
-            </a>
-            <a
-              href="#projects"
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
-            >
-              Projects
-            </a>
-            <a
-              href="#about"
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
-            >
-              Contact
-            </a>
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-ink-muted hover:text-ink transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700 hover:text-primary-600 transition-colors"
+            className="md:hidden text-ink-muted hover:text-ink transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? (
-              <FaTimes size={24} />
-            ) : (
-              <FaBars size={24} />
-            )}
+            {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4">
-            <a
-              href="#home"
-              className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="#projects"
-              className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Projects
-            </a>
-            <a
-              href="#about"
-              className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </a>
+          <div className="md:hidden mt-4 pb-2 flex flex-col gap-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-ink-muted hover:text-ink transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         )}
       </nav>
