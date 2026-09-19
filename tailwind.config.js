@@ -31,6 +31,10 @@ export default {
           DEFAULT: '#8a5a24',
           soft: '#f6ead8',
         },
+        magenta: {
+          DEFAULT: '#9d174d',
+          soft: '#fce7f1',
+        },
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],

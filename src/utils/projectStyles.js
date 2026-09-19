@@ -14,6 +14,11 @@ export const accentStyles = {
     text: 'text-amber',
     border: 'border-amber/20',
   },
+  magenta: {
+    soft: 'bg-magenta-soft',
+    text: 'text-magenta',
+    border: 'border-magenta/20',
+  },
 };
 
 export function getAccent(accent) {

@@ -87,7 +87,7 @@ function ProjectModal({ project, onClose }) {
             {project.breakdown && (
               <div className="mb-8">
                 <h3 className="text-sm font-semibold text-ink mb-3">
-                  How it works
+                  How it works/Learning Experience
                 </h3>
                 <p className="text-ink-muted leading-[1.75]">
                   {project.breakdown}

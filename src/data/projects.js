@@ -70,4 +70,27 @@ export const projects = [
     releaseDate: '2025',
     accent: 'amber',
   },
+  {
+    id: 4,
+    slug: 'molecyou',
+    title: 'Molecyou',
+    summary:
+      'Map workouts and activity to the proteins associated with them.',
+    description:
+      'An educational app that reads workout and activity data through HealthKit and maps it to scientifically known proteins associated with those activities. It makes no medical diagnosis or claims of its own. It introduces the proteins and processes tied to what HealthKit observes, so you can look further into the science.',
+    highlights: [
+      'Read workout and activity data through HealthKit',
+      'Map observed activities to scientifically known proteins',
+      'Explore associated proteins and processes without medical claims',
+    ],
+    breakdown:
+      'This was my first app that uses the iOS HealthKit framework. It let me explore how HealthKit works, including its quirks, and how to connect that data with scientifically verified sources such as the UniProt database. Along the way I learned a lot about HealthKit, UniProt, proteins, and the privacy and handling nuances of data tied to workouts and general activity.',
+    group: 'ios',
+    category: 'iOS App',
+    appStoreLink: 'https://apps.apple.com/us/app/molecyou/id6803336302',
+    screenshot: '/screenshots/molecyou.png',
+    tags: ['Swift', 'SwiftUI', 'HealthKit', 'iOS'],
+    releaseDate: '2026',
+    accent: 'magenta',
+  },
 ];
