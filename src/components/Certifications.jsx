@@ -19,12 +19,9 @@ function Certifications() {
           </p>
         ) : (
           <div>
-            {certifications.map((cert, index) => {
+            {certifications.map((cert) => {
               const content = (
                 <>
-                  <span className="hidden md:block text-sm tabular-nums text-ink-faint">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
                       <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
@@ -50,7 +47,7 @@ function Certifications() {
               );
 
               const rowClassName =
-                'group w-full text-left py-7 md:py-8 grid grid-cols-1 md:grid-cols-[3.5rem_1fr_auto] gap-2 md:gap-6 items-center';
+                'group w-full text-left py-7 md:py-8 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 sm:gap-6 items-center';
 
               return (
                 <article key={cert.id} className="border-t border-line last:border-b">
