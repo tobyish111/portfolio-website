@@ -1,5 +1,4 @@
 import Header from './components/Header';
-import Hero from './components/Hero';
 import Projects from './components/Projects';
 import About from './components/About';
 import Certifications from './components/Certifications';
@@ -11,9 +10,8 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <Hero />
-        <Projects />
         <About />
+        <Projects />
         <Certifications />
         <Contact />
       </main>

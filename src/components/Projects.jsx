@@ -21,11 +21,11 @@ function Projects() {
   }, [activeFilter]);
 
   return (
-    <section id="projects" className="pb-24">
+    <section id="projects" className="py-24 border-t border-line">
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-8">
           <h2 className="font-serif text-3xl md:text-4xl text-ink mb-3">
-            Selected work
+            My Projects
           </h2>
           <p className="text-ink-muted leading-relaxed">
             iOS apps and other software projects. Open one to read what it does

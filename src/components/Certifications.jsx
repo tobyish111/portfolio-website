@@ -9,10 +9,9 @@ function Certifications() {
             Certifications
           </h2>
           <p className="text-ink-muted leading-relaxed">
-            Credentials and coursework that support the work above.
+            My Professional Certifications.
           </p>
         </div>
-
         {certifications.length === 0 ? (
           <p className="text-ink-muted py-12 border-t border-b border-line">
             Certifications will be added here.
@@ -22,18 +21,27 @@ function Certifications() {
             {certifications.map((cert) => {
               const content = (
                 <>
-                  <div className="min-w-0">
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
-                      <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
-                        {cert.title}
-                      </h3>
-                      {cert.date && (
-                        <span className="text-sm text-ink-faint">{cert.date}</span>
+                  <div className="flex items-center gap-4 min-w-0">
+                    {cert.logo && (
+                      <img
+                        src={cert.logo}
+                        alt=""
+                        className="w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] object-contain shrink-0"
+                      />
+                    )}
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                        <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
+                          {cert.title}
+                        </h3>
+                        {cert.date && (
+                          <span className="text-sm text-ink-faint">{cert.date}</span>
+                        )}
+                      </div>
+                      {cert.issuer && (
+                        <p className="text-ink-muted leading-relaxed">{cert.issuer}</p>
                       )}
                     </div>
-                    {cert.issuer && (
-                      <p className="text-ink-muted leading-relaxed">{cert.issuer}</p>
-                    )}
                   </div>
                   {cert.credentialUrl && (
                     <span className="hidden sm:inline-flex text-sm font-medium text-ink-muted group-hover:text-accent transition-colors whitespace-nowrap">

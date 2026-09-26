@@ -7,6 +7,7 @@ export const certifications = [
     title: 'AWS Certified Cloud Practitioner',
     issuer: 'Amazon Web Services',
     date: 'July 25, 2025',
+    logo: '/certifications/aws-cloud-practitioner.png',
     credentialUrl:
       'https://www.credly.com/badges/75fd6726-063b-4f43-baed-a63624c48d98/linked_in_profile',
   },

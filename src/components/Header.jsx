@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About me' },
+  { href: '#projects', label: 'My Projects' },
   { href: '#certifications', label: 'Certifications' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -32,7 +31,7 @@ function Header() {
       <nav className="mx-auto max-w-6xl px-6 py-4">
         <div className="flex items-center justify-between">
           <a
-            href="#home"
+            href="#about"
             className="text-[15px] font-semibold tracking-tight text-ink hover:text-accent transition-colors"
           >
             Toby Buckmaster
