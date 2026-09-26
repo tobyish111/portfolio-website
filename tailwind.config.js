@@ -35,6 +35,14 @@ export default {
           DEFAULT: '#9d174d',
           soft: '#fce7f1',
         },
+        slate: {
+          DEFAULT: '#3f4c5a',
+          soft: '#e7edf2',
+        },
+        navy: {
+          DEFAULT: '#1e3a5f',
+          soft: '#e7eef6',
+        },
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],

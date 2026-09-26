@@ -1,8 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { FaAppStore, FaTimes } from 'react-icons/fa';
+import { FaAppStore, FaApple, FaLinux, FaTimes, FaWindows } from 'react-icons/fa';
 import { getAccent } from '../utils/projectStyles';
 import ScreenshotFrame from './ScreenshotFrame';
+
+const downloadIcons = {
+  windows: FaWindows,
+  linux: FaLinux,
+  macos: FaApple,
+};
 
 function ProjectModal({ project, onClose }) {
   const closeRef = useRef(null);
@@ -111,6 +117,29 @@ function ProjectModal({ project, onClose }) {
               </div>
             )}
 
+            {project.sections?.map((section) => (
+              <div key={section.heading} className="mb-8">
+                <h3 className="text-sm font-semibold text-ink mb-3">
+                  {section.heading}
+                </h3>
+                {section.paragraphs?.map((paragraph) => (
+                  <p key={paragraph} className="text-ink-muted leading-[1.75] mb-3 last:mb-0">
+                    {paragraph}
+                  </p>
+                ))}
+                {section.bullets?.length > 0 && (
+                  <ul className="space-y-2.5">
+                    {section.bullets.map((item) => (
+                      <li key={item} className="flex gap-3 text-ink-muted leading-relaxed">
+                        <span className={`mt-2 h-1.5 w-1.5 rounded-full shrink-0 ${accent.text} bg-current`} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+
             <div className="flex flex-wrap gap-2 mb-8">
               {project.tags.map((tag) => (
                 <span
@@ -142,6 +171,46 @@ function ProjectModal({ project, onClose }) {
               >
                 {project.linkLabel || 'View project'}
               </a>
+            )}
+            {project.links?.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-8">
+                {project.links.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-ink rounded-full border border-line bg-paper hover:border-ink/30 hover:text-accent transition-colors"
+                  >
+                    {item.label}
+                    <span aria-hidden="true" className="ml-1.5">→</span>
+                  </a>
+                ))}
+              </div>
+            )}
+            {project.downloads?.length > 0 && (
+              <div>
+                <h3 className="text-sm font-semibold text-ink mb-3">
+                  Download Today!
+                </h3>
+                <div className="flex flex-col items-start gap-2">
+                  {project.downloads.map((item) => {
+                    const Icon = downloadIcons[item.platform];
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-paper text-sm font-medium rounded-full hover:bg-accent transition-colors"
+                      >
+                        {Icon && <Icon aria-hidden="true" />}
+                        {item.label}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
             )}
           </div>
         </div>
