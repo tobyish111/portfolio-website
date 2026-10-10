@@ -74,7 +74,13 @@ function ProjectModal({ project, onClose }) {
             />
             <div className="min-w-0 pt-0.5">
               <p className="text-sm text-ink-faint mb-1">
-                {project.category} · {project.releaseDate}
+                {[
+                  project.category,
+                  project.learning ? 'Learning' : null,
+                  project.releaseDate,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')}
               </p>
               <h2
                 id="project-dialog-title"

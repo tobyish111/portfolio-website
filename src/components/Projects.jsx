@@ -7,6 +7,7 @@ const filters = [
   { id: 'all', label: 'All' },
   { id: 'ios', label: 'iOS' },
   { id: 'other', label: 'Other' },
+  { id: 'learning', label: 'Learning' },
 ];
 
 function Projects() {
@@ -16,6 +17,9 @@ function Projects() {
   const visibleProjects = useMemo(() => {
     if (activeFilter === 'all') {
       return projects;
+    }
+    if (activeFilter === 'learning') {
+      return projects.filter((project) => project.learning);
     }
     return projects.filter((project) => project.group === activeFilter);
   }, [activeFilter]);
@@ -28,8 +32,8 @@ function Projects() {
             My Projects
           </h2>
           <p className="text-ink-muted leading-relaxed">
-            iOS apps and other software projects. Open one to read what it does
-            and why I built it.
+            iOS apps, other software, and learning projects. Open one to read
+            what it does and why I built it.
           </p>
         </div>
 
