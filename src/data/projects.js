@@ -232,4 +232,45 @@ export const projects = [
     releaseDate: '2026',
     accent: 'navy',
   },
+  {
+    id: 7,
+    slug: 'minecraft-terrain-cuda',
+    title: 'Minecraft Terrain on CUDA',
+    summary:
+      'A learning project: Minecraft world generation moved onto NVIDIA CUDA cores, measured against the usual CPU path.',
+    description:
+      'I wanted to see how much faster Minecraft world generation could get by running on NVIDIA CUDA cores, and to learn CUDA programming in C++. Terrain generation is largely parallel, with a few exceptions, so it was a concrete way to find out what that hardware actually changes.',
+    sections: [
+      {
+        heading: 'Why I built it',
+        paragraphs: [
+          'This was a learning project. I used my own PC, an NVIDIA RTX 5090 and a Ryzen 9 9950X, and reimplemented Minecraft Java Edition 26.3 overworld terrain generation as CUDA kernels. The point was to compare that with the standard CPU-bound way the game does the same work, and to get familiar with how CUDA and C++ fit together.',
+        ],
+      },
+      {
+        heading: 'What I found',
+        paragraphs: [
+          'On that machine, the CUDA version of the full terrain step is bit-identical to vanilla: biomes, blocks, and density values match the game, with no tolerance. It generated that step at 101,352 chunks per second, which is 857× vanilla on one thread and 49× vanilla on all 32 threads of the Ryzen 9 9950X. The charts, videos, correctness checks, and optimization notes are in the report.',
+        ],
+      },
+    ],
+    group: 'other',
+    learning: true,
+    category: 'CUDA',
+    links: [
+      {
+        label: 'Read the report',
+        href: 'https://bonquifo.github.io/minecraft-terrain-cuda/',
+      },
+      {
+        label: 'Source code on GitHub',
+        href: 'https://github.com/bonquifo/minecraft-terrain-cuda',
+      },
+    ],
+    screenshot: '/screenshots/minecraft-terrain-cuda.png',
+    wideImage: true,
+    tags: ['C++', 'CUDA', 'CMake'],
+    releaseDate: '2026',
+    accent: 'moss',
+  },
 ];

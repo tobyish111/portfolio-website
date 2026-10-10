@@ -43,6 +43,10 @@ export default {
           DEFAULT: '#1e3a5f',
           soft: '#e7eef6',
         },
+        moss: {
+          DEFAULT: '#2f6b45',
+          soft: '#e5f2ea',
+        },
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],

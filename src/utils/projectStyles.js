@@ -29,6 +29,11 @@ export const accentStyles = {
     text: 'text-navy',
     border: 'border-navy/20',
   },
+  moss: {
+    soft: 'bg-moss-soft',
+    text: 'text-moss',
+    border: 'border-moss/20',
+  },
 };
 
 export function getAccent(accent) {

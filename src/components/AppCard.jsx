@@ -11,12 +11,19 @@ function AppCard({ project, onSelect }) {
       >
         <ScreenshotFrame
           project={project}
-          className="w-full aspect-square rounded-xl ring-1 ring-inset ring-black/5 mb-5"
+          className={`w-full rounded-xl ring-1 ring-inset ring-black/5 mb-5 ${
+            project.wideImage ? 'aspect-[2/1]' : 'aspect-square'
+          }`}
         />
 
         <p className="text-sm text-ink-faint mb-1.5">
-          {project.releaseDate}
-          {project.group === 'other' ? ' · Other' : ' · iOS'}
+          {[
+            project.releaseDate,
+            project.group === 'other' ? 'Other' : 'iOS',
+            project.learning ? 'Learning' : null,
+          ]
+            .filter(Boolean)
+            .join(' · ')}
         </p>
         <h3 className="text-xl font-semibold tracking-tight text-ink mb-2 group-hover:text-accent transition-colors">
           {project.title}
